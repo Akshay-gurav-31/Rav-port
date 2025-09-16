@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ravsaheb Bansode - Data Scientist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -165,7 +164,7 @@
             width: 240px;
             height: 240px;
             border-radius: 50%;
-            background: url('https://via.placeholder.com/240x240') center/cover no-repeat;
+            background: url('images/RavB.png') center/cover no-repeat;
             border: 0.4rem solid #fff;
             box-shadow: 
                 0 0 0.8rem #fff, 
@@ -402,6 +401,15 @@
         .footer .social-icons a:hover {
             color: #fff;
             transform: scale(1.1);
+        }
+
+        /* Hide social icons on non-home sections */
+        .work-container ~ .icons,
+        .skills-container ~ .icons,
+        .about-container ~ .icons,
+        .contact-container ~ .icons,
+        .footer ~ .icons {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -696,6 +704,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -705,8 +714,28 @@
                     }
                 });
             });
+            
+            // Hide social icons when not on home section
+            const socialIcons = document.querySelector('.icons');
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.id === 'home') {
+                            socialIcons.style.display = 'flex';
+                        } else {
+                            socialIcons.style.display = 'none';
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            // Observe all sections
+            document.querySelectorAll('.portfolio-container, .work-container, .skills-container, .about-container, .contact-container')
+                .forEach(section => observer.observe(section));
         });
     </script>
 </body>
 
-</html>
+    </html>
