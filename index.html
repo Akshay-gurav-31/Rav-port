@@ -364,31 +364,10 @@
         }
 
         .about-content {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            text-align: left;
+            text-align: center;
             padding: 0 1rem;
-        }
-
-        .about-image {
-            flex: 1;
-            max-width: 300px;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.8rem;
-            border: 2px solid #5DB9EE;
-            box-shadow: 0 4px 12px rgba(56, 119, 255, 0.2);
-            aspect-ratio: 1/1;
-        }
-
-        .about-text {
-            flex: 2;
         }
 
         .about-text p {
@@ -554,12 +533,7 @@
             }
 
             .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-image {
-                max-width: 220px;
+                max-width: 100%;
             }
         }
 
@@ -621,10 +595,6 @@
 
             .work-grid, .skills-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                max-width: 180px;
             }
 
             .icons {
@@ -737,9 +707,6 @@
     <div class="about-container" id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
-            <div class="about-image">
-                <img src="images/about-me.png" alt="About Me Image">
-            </div>
             <div class="about-text">
                 <h3>Who Am I?</h3>
                 <p>Hi, I'm Ravsaheb Bansode, a passionate Data Scientist dedicated to solving real-world problems through data and AI.</p>
