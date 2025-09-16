@@ -95,6 +95,7 @@
             position: fixed;
             right: 0;
             top: 0;
+            z-index: -1;
         }
 
         .icons {
@@ -164,7 +165,7 @@
             width: 240px;
             height: 240px;
             border-radius: 50%;
-            background: url('images/RavB.png') center/cover no-repeat;
+            background: #5DB9EE;
             border: 0.4rem solid #fff;
             box-shadow: 
                 0 0 0.8rem #fff, 
@@ -172,6 +173,13 @@
                 0 0 1.5rem #3877FF,
                 inset 0 0 1.5rem #3877FF;
             position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
         }
 
         .name {
@@ -251,6 +259,7 @@
             padding: 5rem 1.5rem;
             background: #262525;
             text-align: center;
+            width: 100%;
         }
 
         .section-title {
@@ -284,6 +293,10 @@
             padding: 1.2rem;
             transition: all 0.3s ease;
             border: 1px solid #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .work-card:hover, .skill-card:hover {
@@ -297,6 +310,7 @@
             height: 160px;
             object-fit: cover;
             border-radius: 0.4rem;
+            margin-bottom: 1rem;
         }
 
         .work-card h3, .skill-card h3 {
@@ -309,6 +323,7 @@
             font-size: 0.85rem;
             color: #bbb;
             line-height: 1.4;
+            margin-bottom: 1rem;
         }
 
         .btn-outline {
@@ -389,6 +404,7 @@
             text-align: center;
             padding: 1.2rem 1rem;
             border-top: 1px solid #333;
+            width: 100%;
         }
 
         .footer .social-icons a {
@@ -482,6 +498,7 @@
             .inner-circle {
                 width: 200px;
                 height: 200px;
+                font-size: 1rem;
             }
 
             .design .name {
@@ -538,6 +555,7 @@
             .inner-circle {
                 width: 160px;
                 height: 160px;
+                font-size: 0.9rem;
             }
 
             .design .name {
@@ -560,6 +578,10 @@
             .contact-container button {
                 font-size: 0.8rem;
             }
+            
+            .work-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -579,7 +601,7 @@
                 <div class="design">
                     <div class="circle-container">
                         <div class="outer-circle"></div>
-                        <div class="inner-circle"></div>
+                        <div class="inner-circle">Profile Image</div>
                     </div>
                     <div class="name">Ravsaheb Bansode</div>
                 </div>
@@ -602,19 +624,19 @@
         <h2 class="section-title">My Work</h2>
         <div class="work-grid">
             <div class="work-card">
-                <img src="images/project1.png" alt="Project 1">
+                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">Dream Analyzer Image</div>
                 <h3>Dream Analyzer</h3>
                 <p>AI-powered Dream Analysis Tool using NLP.</p>
                 <a href="https://github.com/ravsaheb7841/dream-analyzer" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <img src="images/project2.png" alt="Project 2">
+                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">News Dashboard Image</div>
                 <h3>News Dashboard</h3>
                 <p>Real-time news updates and analytics dashboard.</p>
                 <a href="https://github.com/ravsaheb7841/news_dashboard_web" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <img src="images/project3.png" alt="Project 3">
+                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">Olympic Analysis Image</div>
                 <h3>Olympic Medal Analysis</h3>
                 <p>Data analysis and visualization of Olympic medal statistics.</p>
                 <a href="https://github.com/ravsaheb7841/oda_ml" class="btn-outline">View Details</a>
@@ -717,25 +739,21 @@
             
             // Hide social icons when not on home section
             const socialIcons = document.querySelector('.icons');
-            const sections = document.querySelectorAll('section');
+            const homeSection = document.querySelector('#home');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        if (entry.target.id === 'home') {
-                            socialIcons.style.display = 'flex';
-                        } else {
-                            socialIcons.style.display = 'none';
-                        }
+                        socialIcons.style.display = 'flex';
+                    } else {
+                        socialIcons.style.display = 'none';
                     }
                 });
             }, { threshold: 0.5 });
             
-            // Observe all sections
-            document.querySelectorAll('.portfolio-container, .work-container, .skills-container, .about-container, .contact-container')
-                .forEach(section => observer.observe(section));
+            observer.observe(homeSection);
         });
     </script>
 </body>
 
-    </html>
+</html>
