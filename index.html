@@ -131,6 +131,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            max-width: 600px;
         }
 
         .design {
@@ -184,6 +185,7 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
+            aspect-ratio: 1/1;
         }
 
         .name {
@@ -196,7 +198,8 @@
 
         .content {
             text-align: center;
-            max-width: 32rem;
+            max-width: 100%;
+            padding: 0 1rem;
         }
 
         .content .intro {
@@ -228,6 +231,7 @@
             gap: 1rem;
             margin-top: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn-container button {
@@ -240,6 +244,7 @@
             font-weight: 600;
             background: #5DB9EE;
             color: #262525;
+            min-width: 150px;
         }
 
         .btn-container button:nth-child(2) {
@@ -315,6 +320,7 @@
             object-fit: cover;
             border-radius: 0.4rem;
             margin-bottom: 1rem;
+            aspect-ratio: 16/9;
         }
 
         .work-card h3, .skill-card h3 {
@@ -328,6 +334,7 @@
             color: #bbb;
             line-height: 1.4;
             margin-bottom: 1rem;
+            flex-grow: 1;
         }
 
         .btn-outline {
@@ -363,6 +370,7 @@
             gap: 2rem;
             align-items: center;
             text-align: left;
+            padding: 0 1rem;
         }
 
         .about-image {
@@ -376,6 +384,7 @@
             border-radius: 0.8rem;
             border: 2px solid #5DB9EE;
             box-shadow: 0 4px 12px rgba(56, 119, 255, 0.2);
+            aspect-ratio: 1/1;
         }
 
         .about-text {
@@ -392,6 +401,7 @@
         .contact-container form {
             max-width: 450px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .contact-container input,
@@ -415,6 +425,8 @@
             font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            width: 100%;
+            max-width: 200px;
         }
 
         .contact-container button:hover {
@@ -468,8 +480,7 @@
                 display: none;
             }
 
-            .content {
-                margin-top: 0;
+            .hero-content {
                 max-width: 100%;
             }
 
@@ -498,16 +509,18 @@
 
             .icons {
                 left: 0.3rem;
-                gap: 1.2rem;
+                gap: 1rem;
             }
 
             .icons a {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             .navlist {
-                gap: 0.8rem;
+                gap: 1rem;
                 height: 8vh;
+                flex-wrap: wrap;
+                padding: 0 1rem;
             }
 
             .navlist li a {
@@ -515,13 +528,13 @@
             }
 
             .circle-container {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
             }
 
             .inner-circle {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
 
             .design .name {
@@ -546,7 +559,7 @@
             }
 
             .about-image {
-                max-width: 250px;
+                max-width: 220px;
             }
         }
 
@@ -576,13 +589,13 @@
             }
 
             .circle-container {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
 
             .inner-circle {
-                width: 160px;
-                height: 160px;
+                width: 140px;
+                height: 140px;
             }
 
             .design .name {
@@ -605,13 +618,21 @@
             .contact-container button {
                 font-size: 0.8rem;
             }
-            
+
             .work-grid, .skills-grid {
                 grid-template-columns: 1fr;
             }
 
             .about-image {
-                max-width: 200px;
+                max-width: 180px;
+            }
+
+            .icons {
+                gap: 0.8rem;
+            }
+
+            .icons a {
+                font-size: 1rem;
             }
         }
     </style>
@@ -633,7 +654,7 @@
                     <div class="circle-container">
                         <div class="outer-circle"></div>
                         <div class="inner-circle">
-                            <img src="images/profile.jpg" alt="Profile Image">
+                            <img src="images/RavB.png" alt="Profile Image">
                         </div>
                     </div>
                     <div class="name">Ravsaheb Bansode</div>
@@ -657,19 +678,19 @@
         <h2 class="section-title">My Work</h2>
         <div class="work-grid">
             <div class="work-card">
-                <img src="images/dream-analyzer.jpg" alt="Dream Analyzer">
+                <img src="images/project1.png" alt="Dream Analyzer">
                 <h3>Dream Analyzer</h3>
                 <p>AI-powered Dream Analysis Tool using NLP to interpret and analyze dream patterns.</p>
                 <a href="https://github.com/ravsaheb7841/dream-analyzer" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <img src="images/news-dashboard.jpg" alt="News Dashboard">
+                <img src="images/project2.png" alt="News Dashboard">
                 <h3>News Dashboard</h3>
                 <p>Real-time news updates and analytics dashboard with interactive visualizations.</p>
                 <a href="https://github.com/ravsaheb7841/news_dashboard_web" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <img src="images/olympic-analysis.jpg" alt="Olympic Analysis">
+                <img src="images/project3.png" alt="Olympic Analysis">
                 <h3>Olympic Medal Analysis</h3>
                 <p>Data analysis and visualization of Olympic medal statistics across decades.</p>
                 <a href="https://github.com/ravsaheb7841/oda_ml" class="btn-outline">View Details</a>
@@ -717,7 +738,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="images/about-me.jpg" alt="About Me Image">
+                <img src="images/about-me.png" alt="About Me Image">
             </div>
             <div class="about-text">
                 <h3>Who Am I?</h3>
