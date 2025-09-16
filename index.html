@@ -176,10 +176,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
+            overflow: hidden;
+        }
+
+        .inner-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .name {
@@ -355,7 +359,27 @@
         .about-content {
             max-width: 1000px;
             margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
             text-align: left;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.8rem;
+            border: 2px solid #5DB9EE;
+            box-shadow: 0 4px 12px rgba(56, 119, 255, 0.2);
+        }
+
+        .about-text {
+            flex: 2;
         }
 
         .about-text p {
@@ -498,7 +522,6 @@
             .inner-circle {
                 width: 200px;
                 height: 200px;
-                font-size: 1rem;
             }
 
             .design .name {
@@ -518,7 +541,12 @@
             }
 
             .about-content {
+                flex-direction: column;
                 text-align: center;
+            }
+
+            .about-image {
+                max-width: 250px;
             }
         }
 
@@ -555,7 +583,6 @@
             .inner-circle {
                 width: 160px;
                 height: 160px;
-                font-size: 0.9rem;
             }
 
             .design .name {
@@ -582,6 +609,10 @@
             .work-grid, .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .about-image {
+                max-width: 200px;
+            }
         }
     </style>
 </head>
@@ -601,18 +632,20 @@
                 <div class="design">
                     <div class="circle-container">
                         <div class="outer-circle"></div>
-                        <div class="inner-circle">Profile Image</div>
+                        <div class="inner-circle">
+                            <img src="images/profile.jpg" alt="Profile Image">
+                        </div>
                     </div>
                     <div class="name">Ravsaheb Bansode</div>
                 </div>
                 
                 <div class="content">
-                    <p class="intro">Hi I Am <span>Ravsaheb Bansode</span></p>
+                    <p class="intro">Hi, I Am <span>Ravsaheb Bansode</span></p>
                     <h1>Data Scientist</h1>
-                    <p class="detail">I am an enthusiastic student passionate about data science, exploring insights from data and building intelligent solutions.</p>
+                    <p class="detail">I am an enthusiastic student passionate about data science, exploring insights from data, and building intelligent solutions. My work blends creativity and technology to solve real-world problems.</p>
                     <div class="btn-container">
-                        <button onclick="window.open('/images/Resume.pdf', '_blank')">Resume</button>
-                        <button onclick="window.open('https://github.com/ravsaheb7841?tab=repositories', '_blank')">View Project</button>
+                        <button onclick="window.open('images/Resume.pdf', '_blank')">Download Resume</button>
+                        <button onclick="window.open('https://github.com/ravsaheb7841?tab=repositories', '_blank')">View Projects</button>
                     </div>
                 </div>
             </div>
@@ -624,21 +657,21 @@
         <h2 class="section-title">My Work</h2>
         <div class="work-grid">
             <div class="work-card">
-                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">Dream Analyzer Image</div>
+                <img src="images/dream-analyzer.jpg" alt="Dream Analyzer">
                 <h3>Dream Analyzer</h3>
-                <p>AI-powered Dream Analysis Tool using NLP.</p>
+                <p>AI-powered Dream Analysis Tool using NLP to interpret and analyze dream patterns.</p>
                 <a href="https://github.com/ravsaheb7841/dream-analyzer" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">News Dashboard Image</div>
+                <img src="images/news-dashboard.jpg" alt="News Dashboard">
                 <h3>News Dashboard</h3>
-                <p>Real-time news updates and analytics dashboard.</p>
+                <p>Real-time news updates and analytics dashboard with interactive visualizations.</p>
                 <a href="https://github.com/ravsaheb7841/news_dashboard_web" class="btn-outline">View Details</a>
             </div>
             <div class="work-card">
-                <div style="height:160px; background:#3877FF; border-radius:0.4rem; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold;">Olympic Analysis Image</div>
+                <img src="images/olympic-analysis.jpg" alt="Olympic Analysis">
                 <h3>Olympic Medal Analysis</h3>
-                <p>Data analysis and visualization of Olympic medal statistics.</p>
+                <p>Data analysis and visualization of Olympic medal statistics across decades.</p>
                 <a href="https://github.com/ravsaheb7841/oda_ml" class="btn-outline">View Details</a>
             </div>
         </div>
@@ -683,13 +716,16 @@
     <div class="about-container" id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
+            <div class="about-image">
+                <img src="images/about-me.jpg" alt="About Me Image">
+            </div>
             <div class="about-text">
                 <h3>Who Am I?</h3>
-                <p>Hi, I'm Ravsaheb Bansode, a passionate Data Scientist who loves solving real-world problems with data and AI.</p>
-                <p>I enjoy working on projects like Dream Analyzer, News Dashboard, and Olympic Medal Analysis.</p>
-                <p>I believe in continuous learning and using creativity + technology to build meaningful solutions.</p>
-                <p>Exploring. Learning. Creating.</p>
-                <a href="/images/Resume.pdf" class="btn-outline">Download Resume</a>
+                <p>Hi, I'm Ravsaheb Bansode, a passionate Data Scientist dedicated to solving real-world problems through data and AI.</p>
+                <p>My projects, like the Dream Analyzer, News Dashboard, and Olympic Medal Analysis, showcase my ability to blend creativity with technical expertise.</p>
+                <p>I thrive on continuous learning, staying updated with the latest advancements in data science, and building innovative solutions.</p>
+                <p>My motto: Exploring data, learning constantly, and creating impactful solutions.</p>
+                <a href="images/Resume.pdf" class="btn-outline">Download Resume</a>
             </div>
         </div>
     </div>
