@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Portfolio Website</title>
+    <title>Ravsaheb Bansode - Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -20,16 +20,14 @@
         body {
             overflow-x: hidden;
             background: #262525;
+            color: white;
         }
 
         .portfolio-container {
             min-height: 100vh;
             width: 100%;
             display: flex;
-            flex-direction: column;
             position: relative;
-            align-items: center;
-            padding-top: 8vh;
         }
 
         .navlist {
@@ -41,8 +39,9 @@
             justify-content: center;
             position: fixed;
             top: 0;
-            background: #262525;
+            background: #1a1a1a;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .navlist li {
@@ -55,12 +54,27 @@
             font-size: 0.9rem;
             color: white;
             transition: all 0.3s ease;
+            position: relative;
+            padding: 0.3rem 0;
         }
 
         .navlist li a:hover {
             color: #5DB9EE;
-            border-bottom: 2px solid #5DB9EE;
-            padding-bottom: 0.2rem;
+        }
+
+        .navlist li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #5DB9EE;
+            transition: width 0.3s ease;
+        }
+
+        .navlist li a:hover::after {
+            width: 100%;
         }
 
         .left-container {
@@ -70,14 +84,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            min-height: calc(100vh - 8vh);
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 10vh;
         }
 
         .right-container {
             background: linear-gradient(-45deg, #3877FF, #262525 70%);
             width: 40%;
             min-height: 100vh;
+            position: fixed;
+            right: 0;
+            top: 0;
         }
 
         .icons {
@@ -91,13 +109,14 @@
             z-index: 1000;
         }
 
-        .icons .fa-brands {
+        .icons a {
             color: #bbb;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            display: block;
         }
 
-        .icons .fa-brands:hover {
+        .icons a:hover {
             cursor: pointer;
             background: linear-gradient(45deg, #5DB9EE, #3877FF);
             -webkit-background-clip: text;
@@ -107,16 +126,72 @@
             filter: drop-shadow(0 0 6px #3877FF);
         }
 
-        .content {
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .design {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .outer-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(90deg, transparent 50%, #262525 50%);
+            position: absolute;
+        }
+
+        .inner-circle {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: url('https://via.placeholder.com/240x240') center/cover no-repeat;
+            border: 0.4rem solid #fff;
+            box-shadow: 
+                0 0 0.8rem #fff, 
+                inset 0 0 0.8rem #fff,
+                0 0 1.5rem #3877FF,
+                inset 0 0 1.5rem #3877FF;
+            position: absolute;
+        }
+
+        .name {
             color: #fff;
+            font-size: 1.3rem;
+            font-weight: 500;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .content {
+            text-align: center;
             max-width: 32rem;
-            text-align: left;
-            margin-top: 2rem;
         }
 
         .content .intro {
             font-size: 1.3rem;
             font-weight: 400;
+            margin-bottom: 0.5rem;
         }
 
         .content .intro span {
@@ -134,12 +209,14 @@
             font-size: 1rem;
             margin: 1rem 0 1.5rem 0;
             line-height: 1.5;
+            color: #ddd;
         }
 
         .btn-container {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+            justify-content: center;
         }
 
         .btn-container button {
@@ -171,52 +248,8 @@
             color: #262525;
         }
 
-        .design {
-            position: absolute;
-            width: 100%;
-            top: 8vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-            z-index: 0;
-        }
-
-        .design .circle {
-            aspect-ratio: 1;
-            border-radius: 50%;
-            position: relative;
-            width: 30rem;
-            background: linear-gradient(90deg, transparent 50%, #262525 50%);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .circle:nth-child(2) {
-            width: 24rem;
-            background: url("images/RavB.png") center/cover no-repeat;
-            border: 0.4rem solid #fff;
-            box-shadow: 
-                0 0 0.8rem #fff, 
-                inset 0 0 0.8rem #fff,
-                0 0 1.5rem #3877FF,
-                inset 0 0 1.5rem #3877FF;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .design .name {
-            color: #fff;
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-top: 1rem;
-            text-align: center;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-
         .work-container, .skills-container, .about-container, .contact-container {
-            padding: 3rem 1.5rem;
+            padding: 5rem 1.5rem;
             background: #262525;
             text-align: center;
         }
@@ -246,16 +279,17 @@
         }
 
         .work-card, .skill-card {
-            background: white;
+            background: #1e1e1e;
             border-radius: 0.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 1.2rem;
             transition: all 0.3s ease;
+            border: 1px solid #333;
         }
 
         .work-card:hover, .skill-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(56, 119, 255, 0.2);
             border: 1px solid #3877FF;
         }
 
@@ -268,13 +302,13 @@
 
         .work-card h3, .skill-card h3 {
             font-size: 1.3rem;
-            color: #3877FF;
+            color: #5DB9EE;
             margin: 0.8rem 0 0.4rem;
         }
 
         .work-card p, .skill-card p {
             font-size: 0.85rem;
-            color: #555;
+            color: #bbb;
             line-height: 1.4;
         }
 
@@ -288,6 +322,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             display: inline-block;
+            margin-top: 0.5rem;
         }
 
         .btn-outline:hover {
@@ -295,6 +330,12 @@
             color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(56, 119, 255, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #5DB9EE;
         }
 
         .about-content {
@@ -307,6 +348,7 @@
             font-size: 0.9rem;
             color: #bbb;
             margin-bottom: 0.8rem;
+            line-height: 1.6;
         }
 
         .contact-container form {
@@ -319,9 +361,11 @@
             width: 100%;
             padding: 0.7rem;
             margin-bottom: 0.8rem;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
             border-radius: 0.4rem;
             font-size: 0.85rem;
+            background: #1e1e1e;
+            color: white;
         }
 
         .contact-container button {
@@ -341,7 +385,7 @@
         }
 
         .footer {
-            background: #262525;
+            background: #1a1a1a;
             color: #fff;
             text-align: center;
             padding: 1.2rem 1rem;
@@ -362,13 +406,14 @@
 
         @media (max-width: 768px) {
             .portfolio-container {
-                padding-top: 7vh;
+                flex-direction: column;
             }
 
             .left-container {
                 width: 100%;
                 padding: 1.5rem 1rem;
-                text-align: center;
+                min-height: auto;
+                padding-top: 8vh;
             }
 
             .right-container {
@@ -376,7 +421,7 @@
             }
 
             .content {
-                margin-top: 1.5rem;
+                margin-top: 0;
                 max-width: 100%;
             }
 
@@ -408,39 +453,35 @@
                 gap: 1.2rem;
             }
 
-            .icons .fa-brands {
+            .icons a {
                 font-size: 1.3rem;
             }
 
             .navlist {
                 gap: 0.8rem;
-                height: 7vh;
+                height: 8vh;
             }
 
             .navlist li a {
                 font-size: 0.8rem;
             }
 
-            .design {
-                top: 7vh;
-                padding: 1.5rem 0;
+            .circle-container {
+                width: 250px;
+                height: 250px;
             }
 
-            .design .circle {
-                width: 18rem;
-            }
-
-            .circle:nth-child(2) {
-                width: 14rem;
+            .inner-circle {
+                width: 200px;
+                height: 200px;
             }
 
             .design .name {
                 font-size: 1.1rem;
-                margin-top: 0.5rem;
             }
 
             .work-container, .skills-container, .about-container, .contact-container {
-                padding: 2rem 1rem;
+                padding: 3rem 1rem;
             }
 
             .section-title {
@@ -473,18 +514,22 @@
                 flex-wrap: wrap;
                 justify-content: space-around;
                 padding: 0 0.5rem;
+                height: auto;
+                min-height: 8vh;
             }
 
             .navlist li a {
                 font-size: 0.7rem;
             }
 
-            .design .circle {
-                width: 14rem;
+            .circle-container {
+                width: 200px;
+                height: 200px;
             }
 
-            .circle:nth-child(2) {
-                width: 10rem;
+            .inner-circle {
+                width: 160px;
+                height: 160px;
             }
 
             .design .name {
@@ -512,27 +557,33 @@
 </head>
 
 <body>
+    <ul class="navlist">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
     <div class="portfolio-container" id="home">
-        <ul class="navlist">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
         <div class="left-container">
-            <div class="design">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="name">Ravsaheb Bansode</div>
-            </div>
-            <div class="content">
-                <p class="intro">Hi I Am <span>Ravsaheb Bansode</span></p>
-                <h1>Data Scientist</h1>
-                <p class="detail">I am an enthusiastic student passionate about data science, exploring insights from data and building intelligent solutions.</p>
-                <div class="btn-container">
-                    <button onclick="window.open('/images/Resume.pdf', '_blank')">Resume</button>
-                    <button onclick="window.open('https://github.com/ravsaheb7841?tab=repositories', '_blank')">View Project</button>
+            <div class="hero-content">
+                <div class="design">
+                    <div class="circle-container">
+                        <div class="outer-circle"></div>
+                        <div class="inner-circle"></div>
+                    </div>
+                    <div class="name">Ravsaheb Bansode</div>
+                </div>
+                
+                <div class="content">
+                    <p class="intro">Hi I Am <span>Ravsaheb Bansode</span></p>
+                    <h1>Data Scientist</h1>
+                    <p class="detail">I am an enthusiastic student passionate about data science, exploring insights from data and building intelligent solutions.</p>
+                    <div class="btn-container">
+                        <button onclick="window.open('/images/Resume.pdf', '_blank')">Resume</button>
+                        <button onclick="window.open('https://github.com/ravsaheb7841?tab=repositories', '_blank')">View Project</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -592,7 +643,7 @@
                 <p>Proficient in SQL for database management, data manipulation, and complex queries.</p>
             </div>
             <div class="skill-card">
-                <i class="fa-solid fa-project-diagram"></i>
+                <i class="fa-solid fa-project-diagram skill-icon"></i>
                 <h3>End-to-End Solutions</h3>
                 <p>Delivering comprehensive solutions from data collection to model deployment.</p>
             </div>
@@ -604,7 +655,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Who Am I?</h3>
-                <p>Hi, I’m Ravsaheb Bansode, a passionate Data Scientist who loves solving real-world problems with data and AI.</p>
+                <p>Hi, I'm Ravsaheb Bansode, a passionate Data Scientist who loves solving real-world problems with data and AI.</p>
                 <p>I enjoy working on projects like Dream Analyzer, News Dashboard, and Olympic Medal Analysis.</p>
                 <p>I believe in continuous learning and using creativity + technology to build meaningful solutions.</p>
                 <p>Exploring. Learning. Creating.</p>
